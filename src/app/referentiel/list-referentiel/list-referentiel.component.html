@@ -5,7 +5,7 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let r of Refs">
+    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let r of Refs; let i = index">
       <div class="card">
         <div class="container-fluid bg-success">
           <div class="float-right">
@@ -14,11 +14,29 @@
           </div>
           <h4>{{r.libelle}}</h4>
           </div>
-            <p class="card-text d-flex justify-content-center" >{{r.presentation  | summerize: 30}} </p>
+            <!-- <p class="card-text d-flex justify-content-center" >{{r.presentation  | summerize: 30}} </p> -->
+            <a href="#ListP-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Presentation</a>
+            <div id="ListP-{{ i }}" class="collapse">
+              <div class="card-body">
+                {{r.presentation}}
+              </div>
+            </div>
           <div>
           <a class="btn btn-outline-dark btn-block card-footer" routerLink="itemRef/{{ r.id }}">Groupe de Competences</a>
-          <button class="btn btn-outline-dark btn-block card-footer" (click)="onClickDownloadPdf(r)">Programme</button>
-          <button class="btn btn-outline-dark btn-block card-footer">{{r.critereEvaluation}}</button>
+          <button class="btn btn-outline-dark btn-block card-footer" (click)="onClickDownloadPdf(r)">Télécharger le Programme</button>
+          <a href="#List-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Critère d'évaluation</a>
+          <!-- <button class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse" data-target="#List-{{ i }}" aria-expanded="true" aria-controls="{{r.id}}">{{r.critereEvaluation}}</button> -->
+          <div id="List-{{ i }}" class="collapse">
+            <div class="card-body">
+              {{r.critereEvaluation}}
+            </div>
+          </div>
+          <a href="#ListCA-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Critère d'admission</a>
+            <div id="ListCA-{{ i }}" class="collapse">
+              <div class="card-body">
+                {{r.critereAdmission}}
+              </div>
+            </div>
         </div>
       </div>
     </div>

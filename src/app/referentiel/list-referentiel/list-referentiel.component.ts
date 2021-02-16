@@ -18,6 +18,7 @@ export class ListReferentielComponent implements OnInit {
   page = 1;
   Refs: any;
   nbrPage: any = 1;
+  cE;
 
   ngOnInit(): void {
     console.log(this.page);

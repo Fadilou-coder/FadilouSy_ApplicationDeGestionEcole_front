@@ -79,12 +79,11 @@ export class EditReferentielComponent implements OnInit {
 
   addRef(){
     console.log(this.formadd.value)
-    console.log(this.pdfSrc);
     var formData = new FormData();
     formData.append('libelle', this.formadd.value.libelle);
     formData.append('presentation', this.formadd.value.presentation);
     formData.append('critereEvaluation', this.formadd.value.critereEvaluation);
-    formData.append('critrreAdmission', this.formadd.value.critereAdmission);
+    formData.append('critereAdmission', this.formadd.value.critereAdmission);
     if (this.pdfSrc) {
       formData.append('programme', this.pdfSrc);
     }

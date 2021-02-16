@@ -2,8 +2,8 @@
   <div class="card-body">
     <h3 class="card-header title text-center">Liste des Groupes de Competences du Réferentiel {{ref?.libelle}}</h3>
   </div>
-  <div class="container mt-5">
-    <h1 class = "text-center" *ngIf="nbrGrp == 0">Cette Referentiel n'a pas de Groupe de Compétences</h1>
+  <div class="container mt-5" *ngIf="nbrGrp == 0">
+    <h1 class = "text-center" *ngIf="nbrGrp == 0">{{message}}</h1>
   </div>
   <div class="row">
     <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let g of grpCpmt">
@@ -13,7 +13,7 @@
           </div>
             <p class="card-text d-flex justify-content-center" >{{g.descriptif}} </p>
           <div>
-          <a class="btn btn-outline-dark btn-block card-footer" routerLink="itemGrpCompt/{{ g.id }}">Competence</a>
+          <a class="btn btn-outline-dark btn-block card-footer" href="/acceuil/grpCmpts/itemGrpCompt/{{ g.id }}">Competence</a>
           <button class="btn btn-outline-dark btn-block card-footer" disabled>Tags</button>
         </div>
       </div>

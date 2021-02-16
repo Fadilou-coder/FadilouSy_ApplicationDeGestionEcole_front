@@ -23,6 +23,8 @@ export class ItemGrpCmptComponent implements OnInit {
   cmpt;
   id = this.route.snapshot.params['id'];
   grpCompt;
+  nbrGrp = 0;
+  message;
 
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class ItemGrpCmptComponent implements OnInit {
     this.grpCmptservice.getOneGrpComptByGrpCompt(this.id).subscribe(
       (response: any) => {
         this.Cpmts = response['hydra:member'];
+        this.nbrGrp = response['hydra:member'].length;
+        if (!this.nbrGrp) {
+          this.message = 'Cet Groupe de Compétences n\'a pas de Compétences';
+        }
         this.idCompt = this.Cpmts[0].id;
         this.Cmptservice.findOnecmpt(this.idCompt).subscribe(
           (response: any) => {

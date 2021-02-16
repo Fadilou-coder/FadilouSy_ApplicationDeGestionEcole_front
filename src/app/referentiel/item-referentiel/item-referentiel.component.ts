@@ -27,6 +27,7 @@ export class ItemReferentielComponent implements OnInit {
   id = this.url.snapshot.params['id'];
   ref;
   nbrGrp = 0;
+  message;
 
   ngOnInit(): void {
     if (this.token){
@@ -44,7 +45,9 @@ export class ItemReferentielComponent implements OnInit {
       (response: any) => {
         this.grpCpmt = response['hydra:member'];
         this.nbrGrp = response['hydra:member'].length;
-        console.log(this.nbrGrp);
+        if (!this.nbrGrp) {
+          this.message = 'Cette Referentiel n\'a pas de Groupe de Compétences';
+        }
         if (response['hydra:view']){
           this.nbrPage = response['hydra:view']['hydra:last'];
           this.nbrPage = this.nbrPage.split('=')[1];
