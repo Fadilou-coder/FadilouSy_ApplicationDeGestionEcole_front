@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger m-3">
+  <a class="navbar-brand bg-white text-danger isDisabled" href="#" ><i class="fas fa-exclamation-circle fa-2x"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="isDisabled nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-clipboard-list"></i><br>Briefs</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="isDisabled nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-inbox"></i><br>Rendu</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="isDisabled nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-compass"></i><br>Explorer</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="isDisabled nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-comments "></i><br>Forum</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-center text-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog "></i><br>Pararmètres</a>
+        <div class="dropdown-menu mt-3">
+          <a class="dropdown-item" routerLink = "promos">Promos</a>
+          <a class="dropdown-item" routerLink = "referentiel">Référentiel</a>
+          <a class="dropdown-item" routerLink = "grpCmpts">Groupes de Compétences</a>
+          <a class="dropdown-item" routerLink = "cmpts">Compétences</a>
+          <a class="dropdown-item isDisabled" routerLink = "/">Groupe de Tag</a>
+          <a class="dropdown-item" routerLink = "profil-sortie">Profil de sortie</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-center text-white" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i><br>users</a>
+        <div class="dropdown-menu mt-3">
+          <a class="dropdown-item" routerLink = "users">Utilisateurs</a>
+          <a class="dropdown-item" routerLink = "profils" *ngIf = "role == 'ROLE_ADMIN'">Profils</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="isDisabled nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-history"></i><br>Historique des promos</a>
+      </li>
+
+    </ul>
+
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link text-center text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img class="image rounded-circle" [src]="image(user?.image)" alt="..."/><br>Profil</a>
+          <div class="dropdown-menu mr-2">
+          {{user?.prenom}} {{user?.nom}}
+          <a class="dropdown-item" href="acceuil/users/editUser/{{user?.id}}">Modifier Profil</a>
+          <a class="dropdown-item" (click) = "logout()" href="/">Deconnexion</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link text-center isDisabled text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-bell"></i><br>Notifs</a>
+          <!-- <div class="dropdown-menu mr-auto">
+          <a class="dropdown-item" href="#">Setting</a>
+          <a class="dropdown-item" href="#">Deconnexion</a>
+        </div> -->
+      </li>
+    </ul>
+
+  </div>
+</nav>
+

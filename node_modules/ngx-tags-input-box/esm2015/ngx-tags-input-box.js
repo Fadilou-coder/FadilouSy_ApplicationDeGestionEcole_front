@@ -1,0 +1,6 @@
+/**
+ * Generated bundle index. Do not edit.
+ */
+export * from './public-api';
+export { TagsComponent as ɵa } from './lib/tags/tags.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LXRhZ3MtaW5wdXQtYm94LmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LXRhZ3MtaW5wdXQtYm94LyIsInNvdXJjZXMiOlsibmd4LXRhZ3MtaW5wdXQtYm94LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyxjQUFjLENBQUM7QUFFN0IsT0FBTyxFQUFDLGFBQWEsSUFBSSxFQUFFLEVBQUMsTUFBTSwyQkFBMkIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogR2VuZXJhdGVkIGJ1bmRsZSBpbmRleC4gRG8gbm90IGVkaXQuXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9wdWJsaWMtYXBpJztcblxuZXhwb3J0IHtUYWdzQ29tcG9uZW50IGFzIMm1YX0gZnJvbSAnLi9saWIvdGFncy90YWdzLmNvbXBvbmVudCc7Il19

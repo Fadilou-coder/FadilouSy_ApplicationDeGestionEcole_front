@@ -1,0 +1,57 @@
+<div class="card">
+      <div class="card-body">
+        <h3 class="card-header title text-center">Liste des utilisateurs</h3>
+        <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "role == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addUser"></i></a></span>
+      </div>
+
+      <div class="container col-md-10">
+        <button class = "btn btn-primary" (click)="uploadPdf()">Telecharger</button>
+        <form class="float-right form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" [(ngModel)]="search" (input) = "searchThis()">
+        </form>
+        <table class="table border text-center" id="my-table">
+          <thead class="thead-info">
+            <tr>
+              <th scope="col">Avatar</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Profil</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let user of users | filter: search: 'prenom'">
+              <td>
+                <img class="image" [src]="image(user.image)" alt="..."/>
+              </td>
+              <td>{{ user.nom }}</td>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.profil.libelle }}</td>
+              <td>
+                <button class="btn btn-success ml-2" routerLink="detailsUser/{{user.id}}">Details</button>
+                <a class="btn btn-warning ml-2" routerLink = "editUser/{{user.id}}" *ngIf = "role == 'ROLE_ADMIN' || role == 'ROLE_FORMATEUR'"><i class="fas fa-user-edit"></i></a>
+                <button class="btn btn-danger ml-2" (click)="archiverUser(user.id)" *ngIf = "role == 'ROLE_ADMIN'"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <p>Page: {{page}}/{{nbrPage}}</p>
+        </div>
+        <div class = "row float-right">
+          <nav aria-label="...">
+            <ul class="pagination">
+              <li class="page-item disabled" [ngClass]="{disabled: page == 1}" >
+                <a class="page-link" (click) = "precedent()">Precedent</a>
+              </li>
+              <li class="page-item" [ngClass]="{active: page == i+1}"  *ngFor="let item of arrayOne(nbrPage); let i = index;"><a class="page-link" (click) = selectedPage(i+1)>{{i+1}}</a></li>
+              <li class="page-item" [ngClass]="{disabled: page == nbrPage}">
+                <a class="page-link" (click) = "suivant()">Suivant</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+</div>

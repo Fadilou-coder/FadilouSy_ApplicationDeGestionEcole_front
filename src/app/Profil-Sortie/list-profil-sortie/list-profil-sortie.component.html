@@ -1,0 +1,32 @@
+<div class="card">
+      <div class="card-body">
+        <h3 class="card-header title text-center">Liste des Profils De Sortie</h3>
+        <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "decoded == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addProfilSortie"></i></a></span>
+      </div>
+      <div class="container col-md-10">
+        <table class="table border text-center">
+          <thead class="thead-info">
+            <tr>
+              <th scope="col">Libelle</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let p of profilSortie">
+              <td>{{ p.libelle }}</td>
+              <td>
+                <a class="btn btn-warning ml-2" routerLink = "editProfilSortie/{{p.id}}"><i class="fas fa-user-edit"></i></a>
+                <button class="btn btn-danger ml-2" (click)="archiverProfilSortie(p.id)" ><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <p>Page: {{page}}/{{nbrPage}}</p>
+        </div>
+        <form class = "float-right" *ngIf = "nbrPage !== 1">
+          <button [disabled]="page == 1"  class="btn btn-primary mr-4" (click) = "precedent()">Previous</button>
+          <button [disabled]="page == nbrPage" class="btn btn-primary" (click) = "suivant()">Next</button>
+        </form>
+      </div>
+</div>

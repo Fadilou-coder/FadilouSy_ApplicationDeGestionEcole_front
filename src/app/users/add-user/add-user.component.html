@@ -1,0 +1,76 @@
+<div class="card-body">
+  <h3 class="card-header title text-center font-weight-bold text-uppercase py-4">Ajouter User</h3>
+</div>
+<div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Information de L'utilisateur!</h1>
+                            </div>
+                            <form class="user" [formGroup]="formadd" (ngSubmit)="addUser()">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                        id="prenom" placeholder="Prénom" [(ngModel)]="prenom" formControlName="prenom"
+                                        name="email" [ngClass]="{'is-invalid': submited && f.prenom.errors }">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" placeholder="Nom"
+                                          [(ngModel)]="nom" formControlName="nom" id="nom" name="nom"
+                                          [ngClass]="{'is-invalid': submited && f.nom.errors }">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user"
+                                        [(ngModel)]="email" formControlName="email" id="email" name="email"
+                                        [ngClass]="{'is-invalid': submited && f.email.errors }" placeholder="Adresse Email">
+                                </div>
+                                <div class="text-danger ml-3 mb-3" *ngIf="f.email.errors">
+                                    <div *ngIf="submited && f.email.errors.email">email n'est pas valide</div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" placeholder="Password"
+                                          [(ngModel)]="password" formControlName="password" id="password" name="password"
+                                          [ngClass]="{'is-invalid': submited && f.password.errors }">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" placeholder="Confirm Password"
+                                          [(ngModel)]="confirm" formControlName="confirm" id="confirm" name="confirm"
+                                          [ngClass]="{'is-invalid': submited && f.confirm.errors }">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <select class="form-control" formControlName="profil" type="text" id="profil" name="profil" [(ngModel)]="profil" [ngClass]="{'is-invalid': submited && f.profil.errors }">
+                                  <option *ngFor = "let p of profils" value="{{ p.libelle }}"> {{ p.libelle }} </option>
+                                  </select>
+                                </div>
+                                <div *ngIf="url" class="mb-2">
+                                  <img class="avatar" [src]="url" alt="..."/>
+                                </div>
+
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                    <input type="file" accept=".jpg,.gif,.png, .jpeg" multiple class="custom-file-input form-control form-control-user" id="image" (change)="onFilSelected($event)"
+                                      [(ngModel)]="image" formControlName="image" name="image"
+                                      [ngClass]="{'is-invalid': submited && f.image.errors }">
+                                      <label class="custom-file-label" #labelImport for="avatar">Choisir une image</label>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block mt-3">
+                                    Ajouter
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

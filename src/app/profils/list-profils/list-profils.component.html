@@ -1,0 +1,38 @@
+<div class="card">
+      <div class="card-body">
+        <h3 class="card-header title text-center">Liste des Profils</h3>
+        <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "role == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addProfil"></i></a></span>
+      </div>
+      <div class="row">
+        <div class="container col-md-8">
+          <table class="table border text-center">
+            <thead class="thead-info">
+              <tr>
+                <th scope="col">Libelle</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let p of profils">
+                <td>{{ p.libelle }}</td>
+                <td>
+                  <button class="btn btn-success ml-2" routerLink="itemProfil/{{ p.id }}">liste Des {{p.libelle}}s</button>
+                  <a class="btn btn-warning ml-2" routerLink = "editProfil/{{p.id}}"><i class="fas fa-user-edit"></i></a>
+                  <button class="btn btn-danger ml-2" (click)="archiverProfil(p.id)" ><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <p>Page: {{page}}/{{nbrPage}}</p>
+          </div>
+          <form class = "float-right">
+            <button [disabled]="page == 1"  class="btn btn-primary mr-4" (click) = "precedent()">Previous</button>
+            <button [disabled]="page == nbrPage" class="btn btn-primary" (click) = "suivant()">Next</button>
+          </form>
+        </div>
+        <!-- <div class="container col-4">
+            <app-add-profil></app-add-profil>
+        </div> -->
+      </div>
+</div>

@@ -1,0 +1,7 @@
+/*
+ * Public API Surface of ngx-tags
+ */
+export * from './lib/ngx-tags.service';
+export * from './lib/ngx-tags.component';
+export * from './lib/ngx-tags.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC10YWdzLWlucHV0LWJveC8iLCJzb3VyY2VzIjpbInB1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLHdCQUF3QixDQUFDO0FBQ3ZDLGNBQWMsMEJBQTBCLENBQUM7QUFDekMsY0FBYyx1QkFBdUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2Ygbmd4LXRhZ3NcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdGFncy5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL25neC10YWdzLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdGFncy5tb2R1bGUnO1xuIl19

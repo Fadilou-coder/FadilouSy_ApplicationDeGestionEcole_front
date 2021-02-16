@@ -1,0 +1,82 @@
+<div class="content mt-md-5 p-md-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Edit Profile</h4>
+                            </div>
+                            <div class="content">
+                                <form class="user" [formGroup]="formadd" (ngSubmit)="updateUser()">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                        id="prenom" placeholder="Prénom" [(ngModel)]="prenom" formControlName="prenom"
+                                        name="prenom" [ngClass]="{'is-invalid': f.prenom.errors }" [readonly] = "connected">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" placeholder="Nom"
+                                          [(ngModel)]="user.nom" formControlName="nom" id="nom" name="nom"
+                                          [ngClass]="{'is-invalid': f.nom.errors }" [readonly] = "connected">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user"
+                                        [(ngModel)]="email" formControlName="email" id="email" name="email"
+                                        [ngClass]="{'is-invalid': f.email.errors }" placeholder="Adresse Email">
+                                </div>
+                                <div class="text-danger ml-3 mb-3" *ngIf="f.email.errors">
+                                    <div *ngIf="f.email.errors.email">email n'est pas valide</div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" placeholder="Password"
+                                          [(ngModel)]="password" formControlName="password" id="password" name="password"
+                                          [ngClass]="{'is-invalid': f.password.errors }" [readonly] = "connected">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" placeholder="Confirm Password"
+                                          [(ngModel)]="password" formControlName="confirm" id="confirm" name="confirm"
+                                          [ngClass]="{'is-invalid': f.confirm.errors }" [readonly] = "connected">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <select class="form-control" formControlName="profil" type="text" id="profil" name="profil" [(ngModel)]="profil" [ngClass]="{'is-invalid': f.profil.errors }">
+                                      <option selected>Choose...</option>
+                                  <option *ngFor = "let p of profils" value="{{ p.libelle }}"> {{ p.libelle }} </option>
+                                  </select>
+                                </div>
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input form-control form-control-user" id="image" (change)="onFilSelected($event)"
+                                      [(ngModel)]="image" formControlName="image" name="image" [ngClass]="{'disable-click': connected == true}">
+                                    <label class="custom-file-label" for="avatar">Choisir une image</label>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block mt-3">
+                                    Modifier
+                                </button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="../../../assets/image/odc.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                    <img class="avatar border-gray" [src]= "user.image" alt="..."/>
+
+                                      <h4 class="title">{{user.prenom }} {{user.nom}}<br />
+                                         <small>{{user.email}}</small>
+                                      </h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>

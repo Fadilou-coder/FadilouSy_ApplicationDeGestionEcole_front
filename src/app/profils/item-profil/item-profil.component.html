@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-header title text-center">Liste des {{profil}}</h3>
+  </div>
+  <div class="container col-md-10">
+    <table class="table border text-center" id="my-table">
+      <thead class="thead-info">
+        <tr>
+          <th scope="col">Avatar</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Profil</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of users">
+          <td>
+            <img class="image" [src]="image(user.image)" alt="..."/>
+          </td>
+          <td>{{ user.nom }}</td>
+          <td>{{ user.prenom }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.profil.libelle }}</td>
+          <td>
+            <button class="btn btn-success ml-2" routerLink="detailsUser/{{user.id}}">Details</button>
+            <a class="btn btn-warning ml-2" routerLink = "editUser/{{user.id}}"><i class="fas fa-user-edit"></i></a>
+            <button class="btn btn-danger ml-2" (click)="archiverUser(user.id)" ><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <p>Page: {{page}}/{{nbrPage}}</p>
+    </div>
+    <form class = "float-right">
+      <button [disabled]="page == 1"  class="btn btn-primary mr-4" (click) = "precedent()">Previous</button>
+      <button [disabled]="page == nbrPage" class="btn btn-primary" (click) = "suivant()">Next</button>
+    </form>
+  </div>
+</div>

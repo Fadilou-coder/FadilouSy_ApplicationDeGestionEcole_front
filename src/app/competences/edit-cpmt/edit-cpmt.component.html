@@ -1,0 +1,114 @@
+<div class="card-body">
+  <h3 class="card-header title text-center font-weight-bold text-uppercase py-4">Modifier la  Compétence</h3>
+</div>
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <!-- Nested Row within Card Body -->
+      <div class="row">
+        <div class="container col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Entrer les informations</h1>
+            </div>
+            <form class="user" [formGroup]="formadd" (ngSubmit)="addCompt()">
+              <div class="form-group">
+                <!-- <label for="grpCompt">Groupe de Competences</label>
+                  <select class="form-control" formControlName="grpCompt" type="text" id="grpCompt" name="idGrpCompt" [(ngModel)]="grpCompt" multiple (ngModelChange)="selectedCompts($event)">
+                    <option *ngFor = "let g of grpCompts" value="{{ g.libelle }}"> {{ g.libelle }} </option>
+                  </select> -->
+
+                  <ng-multiselect-dropdown
+                    [placeholder]="'Choisir Groupe de Competences'"
+                    [data]="grpCompts"
+                    [(ngModel)]="selectedGrpCompts"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    formControlName="selectedGrpCompts"
+                  >
+                  </ng-multiselect-dropdown>
+            </div>
+              <div class="form-group">
+                <label for="libelle">Libelle</label>
+                <input type="text" class="form-control form-control-user"
+                       formControlName="libelle" id="libelle" name="libelle" placeholder="Libelle" [(ngModel)]="libelle">
+              </div>
+
+              <div class="container">
+                <ul class="row nav nav-pills ml-sm-2">
+                  <li class="active mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv1">Niveau 1</a></li>
+                  <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv2">Niveau 2</a></li>
+                  <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv3">Niveau 3</a></li>
+                </ul>
+                <div class="tab-content mb-5">
+                  <div id="niv1" class="tab-pane fade in active">
+                    <div class="row container-fluid">
+                      <div class="col-lg-6 border border-dark">
+                        <div class="form-group">
+                          <label for="grpAction1" class = "text-danger">Groupe d'actions à réaliser</label>
+                          <textarea class="form-control form-control-user"
+                                 formControlName="grpAction1" id="grpAction1" name="grpAction1" placeholder="Groupe d'action" [(ngModel)]="grpAction1"></textarea>
+                        </div>
+                      </div>
+                      <div class="col border border-dark">
+                        <div class="form-group">
+                          <label for="crEv1" class = "text-danger">Critère d'évaluation</label>
+                          <textarea  class="form-control form-control-user"
+                                 formControlName="crEv1" id="crEv1" name="crEv1" placeholder="Critère d'évaluation" [(ngModel)]="crEv1"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="niv2" class="tab-pane fade">
+                    <div class="row container-fluid">
+                      <div class="col-lg-6 border border-dark">
+                        <div class="form-group">
+                          <label for="grpAction2" class = "text-danger">Groupe d'actions à réaliser</label>
+                          <textarea class="form-control form-control-user"
+                                 formControlName="grpAction2" id="grpAction2" name="grpAction2" placeholder="Groupe d'action" [(ngModel)]="grpAction2"></textarea>
+                        </div>
+                      </div>
+                      <div class="col border border-dark">
+                        <div class="form-group">
+                          <label for="crEv2" class = "text-danger">Critère d'évaluation</label>
+                          <textarea type="text" class="form-control form-control-user"
+                                 formControlName="crEv2" id="crEv2" name="crEv2" placeholder="Critère d'évaluation" [(ngModel)]="crEv2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="niv3" class="tab-pane fade">
+                    <div class="row container-fluid">
+                      <div class="col-lg-6 border border-dark">
+                        <div class="form-group">
+                          <label for="grpAction3" class = "text-danger">Groupe d'actions à réaliser</label>
+                          <textarea class="form-control form-control-user"
+                                 formControlName="grpAction3" id="grpAction3" name="grpAction3" placeholder="Groupe d'action" [(ngModel)]="grpAction3"></textarea>
+                        </div>
+                      </div>
+                      <div class="col border border-dark">
+                        <div class="form-group">
+                          <label for="crEv3" class = "text-danger">Critère d'évaluation</label>
+                          <textarea type="text" class="form-control form-control-user"
+                                 formControlName="crEv3" id="crEv3" name="crEv3" placeholder="Critère d'évaluation" [(ngModel)]="crEv3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button [disabled]="formadd.invalid" type="submit" class="btn btn-primary btn-user btn-block mt-3">
+                Soumettre
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

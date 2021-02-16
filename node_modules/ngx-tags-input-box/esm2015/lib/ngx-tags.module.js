@@ -1,0 +1,16 @@
+import { __decorate } from "tslib";
+import { NgModule } from '@angular/core';
+import { NgxTagsComponent } from './ngx-tags.component';
+import { TagsComponent } from './tags/tags.component';
+import { CommonModule } from '@angular/common';
+let NgxTagsModule = class NgxTagsModule {
+};
+NgxTagsModule = __decorate([
+    NgModule({
+        declarations: [NgxTagsComponent, TagsComponent],
+        imports: [CommonModule],
+        exports: [NgxTagsComponent, TagsComponent],
+    })
+], NgxTagsModule);
+export { NgxTagsModule };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LXRhZ3MubW9kdWxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LXRhZ3MtaW5wdXQtYm94LyIsInNvdXJjZXMiOlsibGliL25neC10YWdzLm1vZHVsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxzQkFBc0IsQ0FBQztBQUN4RCxPQUFPLEVBQUUsYUFBYSxFQUFFLE1BQU0sdUJBQXVCLENBQUM7QUFDdEQsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLGlCQUFpQixDQUFDO0FBTy9DLElBQWEsYUFBYSxHQUExQixNQUFhLGFBQWE7Q0FBRyxDQUFBO0FBQWhCLGFBQWE7SUFMekIsUUFBUSxDQUFDO1FBQ1IsWUFBWSxFQUFFLENBQUMsZ0JBQWdCLEVBQUUsYUFBYSxDQUFDO1FBQy9DLE9BQU8sRUFBRSxDQUFDLFlBQVksQ0FBQztRQUN2QixPQUFPLEVBQUUsQ0FBQyxnQkFBZ0IsRUFBRSxhQUFhLENBQUM7S0FDM0MsQ0FBQztHQUNXLGFBQWEsQ0FBRztTQUFoQixhQUFhIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IE5neFRhZ3NDb21wb25lbnQgfSBmcm9tICcuL25neC10YWdzLmNvbXBvbmVudCc7XG5pbXBvcnQgeyBUYWdzQ29tcG9uZW50IH0gZnJvbSAnLi90YWdzL3RhZ3MuY29tcG9uZW50JztcbmltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5cbkBOZ01vZHVsZSh7XG4gIGRlY2xhcmF0aW9uczogW05neFRhZ3NDb21wb25lbnQsIFRhZ3NDb21wb25lbnRdLFxuICBpbXBvcnRzOiBbQ29tbW9uTW9kdWxlXSxcbiAgZXhwb3J0czogW05neFRhZ3NDb21wb25lbnQsIFRhZ3NDb21wb25lbnRdLFxufSlcbmV4cG9ydCBjbGFzcyBOZ3hUYWdzTW9kdWxlIHt9XG4iXX0=

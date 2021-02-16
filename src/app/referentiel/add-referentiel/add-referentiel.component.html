@@ -1,0 +1,73 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<div class="card-body">
+  <h3 class="card-header title text-center font-weight-bold text-uppercase py-4">Ajout de Référentiel</h3>
+</div>
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <div class="row">
+        <div class="container col-lg-10">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Creer Un Referentiel</h1>
+            </div>
+            <form class="user" [formGroup]="formadd" (ngSubmit)="addRef()">
+
+              <div class="form-group">
+                <label for="libelle">Libelle</label>
+                <input type="text" class="form-control" id="libelle" placeholder="Saisir le libelle du référentiel" formControlName = "libelle" [(ngModel)]="libelle" name="libelle">
+              </div>
+              <div class="form-group">
+                <label for="presentation">Présentation</label>
+                <textarea class="form-control"
+                          formControlName="presentation" id="presentation" name="presentation" placeholder="Présentation du référentiel" [(ngModel)]="presentation"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="presentation">Groupe de Compétences</label>
+                <ng-multiselect-dropdown
+                    [placeholder]="'competences'"
+                    [data]="compts"
+                    [(ngModel)]="selectedCompts"
+                    [settings]="dropdownSettings"
+                    formControlName="selectedCompts"
+                  >
+                  </ng-multiselect-dropdown>
+              </div>
+
+              <div class="form-group">
+                <label>Programme</label>
+                <button type="button" class="ml-5 btn btn-outline-info" (click)="prog.click()">uploder le Programme</button>
+                <input style=" display: none;" type="file" accept=".jpg,.gif,.png, .jpeg, .pdf" (change)="upload($event)" multiple class="custom-file-input form-control" formControlName = "programme" [(ngModel)]="programme" name="programme" #prog>
+              </div>
+
+              <div class="form-group">
+                <label for="critereEvaluation">Critères d'évaluation</label>
+                <textarea class="form-control"
+                          formControlName="critereEvaluation" id="critereEvaluation" name="critereEvaluation" placeholder="Critère d'évaluation" [(ngModel)]="critereEvaluation"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="critereAdmission">Critères d'admission</label>
+                <textarea class="form-control"
+                          formControlName="critereAdmission" id="critereAdmission" name="critereAdmission" placeholder="Critère d'admission" [(ngModel)]="critereAdmission"></textarea>
+                <!-- <tag-input formControlName="critereAdmission" name="critereAdmission" id="critereAdmission" [(ngModel)]="critereAdmission " [identifyBy]="'id'" [displayBy] = "'libelle'">
+                </tag-input> -->
+
+              </div>
+
+              <button  type="submit" class="btn btn-primary btn-user btn-block mt-3">
+                Soumettre
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

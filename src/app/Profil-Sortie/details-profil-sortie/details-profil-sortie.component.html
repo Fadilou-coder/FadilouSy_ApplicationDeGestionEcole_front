@@ -1,0 +1,42 @@
+
+<div class="container col-xl-10">
+  <div class="card-body">
+    <h3 class="card-header title text-center">Les Apprenants des Profils de Sorties</h3>
+  </div>
+  <div class="row container-fluid col-md-10 ml-md-5">
+    <div class="col-md-4">
+        <form class="container mt-2">
+          <div class="form-group">
+              <div class="container" [formGroup] = "form">
+                <select class="selectpicker" data-style="btn-primary" formControlName="idPs" type="text" id="profilDeSortie" name="profilDeSortie" [(ngModel)]="idPs" (change) = "user()">
+                  <option *ngFor = "let p of PrSortie" value="{{ p.id }}"> {{ p.libelle }} </option>
+                </select>
+              </div>
+          </div>
+        </form>
+    </div>
+    <div class="col">
+        <div class="container mt-2">
+          <table class="table text-center" id="my-table">
+            <tbody>
+              <tr *ngFor = "let user of users">
+                <td>
+                  <img class="image" [src]="image(user.image)" alt="..."/>
+                </td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div>
+            <p>Page: {{page}}/{{nbrPage}}</p>
+          </div> -->
+        </div>
+        <form class = "float-right" *ngIf = "nbrPage !== 1">
+          <button [disabled]="page == 1"  class="btn btn-primary mr-4" (click) = "precedent()">Previous</button>
+          <button [disabled]="page == nbrPage" class="btn btn-primary" (click) = "suivant()">Next</button>
+        </form>
+    </div>
+  </div>
+</div>

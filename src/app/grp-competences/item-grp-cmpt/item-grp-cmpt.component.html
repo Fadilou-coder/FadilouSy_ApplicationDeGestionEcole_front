@@ -1,0 +1,68 @@
+
+<div class="container col-xl-10">
+  <div class="card-body">
+    <h3 class="card-header title text-center">Liste des Competences de {{grpCompt}}</h3>
+  </div>
+  <div class="row container-fluid col-md-10 ml-md-5">
+    <div class="col-md-4 mt-5 border border-dark">
+        <form class="container mt-2">
+          <div class="form-group">
+              <div class="container" [formGroup] = "form">
+                <select class="form-control" formControlName="idCompt" type="text" id="competence" name="competence" [(ngModel)]="idCompt" (change) = "compt()">
+                  <option *ngFor = "let c of Cpmts" value="{{ c.id }}"> {{ c.libelle }} </option>
+                </select>
+              </div>
+          </div>
+        </form>
+    </div>
+    <div class="col mt-5 border border-dark">
+        <div class="container mt-2">
+          <div class="container">
+            <ul class="nav nav-pills">
+              <li class="active mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv1">Niveau 1</a></li>
+              <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv2">Niveau 2</a></li>
+              <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv3">Niveau 3</a></li>
+            </ul>
+            <div class="tab-content mb-5">
+              <div id="niv1" class="tab-pane fade in active">
+                <div class="row container-fluid">
+                  <div class="col-lg-6 border border-dark">
+                    <h3>Critère d'évaluation</h3>
+                    <p>{{ cmpt?.niveau[0]?.critereEvaluation }}</p>
+                  </div>
+                  <div class="col border border-dark">
+                    <h3>Groupe d'action</h3>
+                    <p>{{ cmpt?.niveau[0]?.groupeAction }}</p>
+                  </div>
+                </div>
+              </div>
+              <div id="niv2" class="tab-pane fade">
+                <div class="row container-fluid">
+                  <div class="col-lg-6 border border-dark">
+                    <h3>Critère d'évaluation</h3>
+                    <p>{{ cmpt?.niveau[1]?.critereEvaluation }}</p>
+                  </div>
+                  <div class="col border border-dark">
+                    <h3>Groupe d'action</h3>
+                    <p>{{ cmpt?.niveau[1]?.groupeAction }}</p>
+                  </div>
+                </div>
+              </div>
+              <div id="niv3" class="tab-pane fade">
+                <div class="row container-fluid">
+                  <div class="col-lg-6 border border-dark">
+                    <h3>Critère d'évaluation</h3>
+                    <p>{{ cmpt?.niveau[2]?.critereEvaluation }}</p>
+                  </div>
+                  <div class="col border border-dark">
+                    <h3>Groupe d'action</h3>
+                    <p>{{ cmpt?.niveau[2]?.groupeAction }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container-fluid col-xl-10">
+  <div class="card-body">
+    <h3 class="card-header title text-center">Liste des Referentiels</h3>
+    <span class="table-add float-right mb-3 mr-5 mt-3"><a class="text-success"><i class="far fa-plus-square fa-4x" routerLink = "addRef"></i> </a></span>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let r of Refs">
+      <div class="card">
+        <div class="container-fluid bg-success">
+          <div class="float-right">
+            <a class="btn" routerLink = "editRef/{{r.id}}"><i class="fas fa-pencil-alt"></i></a>
+            <button class="btn" (click)="archiverRef(r.id)"><i class="fa fa-close"></i></button>
+          </div>
+          <h4>{{r.libelle}}</h4>
+          </div>
+            <p class="card-text d-flex justify-content-center" >{{r.presentation  | summerize: 30}} </p>
+          <div>
+          <a class="btn btn-outline-dark btn-block card-footer" routerLink="itemRef/{{ r.id }}">Groupe de Competences</a>
+          <button class="btn btn-outline-dark btn-block card-footer" (click)="onClickDownloadPdf(r)">Programme</button>
+          <button class="btn btn-outline-dark btn-block card-footer">{{r.critereEvaluation}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class = "float-right" *ngIf =" nbrPage !== 1">
+    <button [disabled]="page == 1"  class="btn btn-primary mr-4" (click) = "precedent()">Previous</button>
+    <button [disabled]="page == nbrPage" class="btn btn-primary" (click) = "suivant()">Next</button>
+  </form>
+</div>
