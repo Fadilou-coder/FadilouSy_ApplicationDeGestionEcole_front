@@ -1,0 +1,28 @@
+﻿		Documentation Sur ApplicationDeGestionEcole_front
+
+1. Télécharger le d’abord Le projet avec 
+       git clone https://github.com/Fadilou-coder/FadilouSy_ApplicationDeGestionEcole_front.git
+	(Télécharger au préalable le projet back)
+
+2.Taper les Commandes Suivants :
+- npm install Pour télécharger les dépendances (installer au préalable npm)
+- ng serve -o (pour tester)
+
+3. Aller sur le navigateur et Tester (naviguer sur http://localhost:4200/)
+
+-Les Identifiants de quelques Utilisateur :
+    Apprenant : 
+     email : may18@medhurst.com
+     password : password
+
+    CM :
+     email : nick.altenwerth@marvin.com
+     password : password
+
+   Admin:
+     email : yhane@bartell.org
+     password : password
+ 
+  Formateur:
+     email : loy55@kautzer.biz
+     password : password
