@@ -12,7 +12,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Information de L'utilisateur!</h1>
                             </div>
-                            <form class="user" [formGroup]="formadd" (ngSubmit)="addUser()">
+                            <form class="user" [formGroup]="formadd">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
@@ -62,8 +62,9 @@
                                       <label class="custom-file-label" #labelImport for="avatar">Choisir une image</label>
                                   </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block mt-3">
-                                    Ajouter
+                                <button class="btn btn-outline-danger mt-3 col-5 mr-5" (click) = "PagePrecedente()">Retour</button>
+                                <button [disabled]="formadd.invalid"  type="submit" class="btn btn-success btn-user col-5 mt-3" (click)="addUser()">
+                                  Soumettre
                                 </button>
                             </form>
 

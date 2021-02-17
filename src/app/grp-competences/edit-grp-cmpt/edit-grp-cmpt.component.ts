@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { GrpCmptService } from '../Services/grp-cmpt.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-grp-cmpt',
@@ -27,7 +28,8 @@ export class EditGrpCmptComponent implements OnInit {
     private router: Router,
     private grpCpmtservice: GrpCmptService,
     private cpmtService: CpmtServicesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _location: Location
   ) {}
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -85,6 +87,10 @@ export class EditGrpCmptComponent implements OnInit {
         alert(error.error.detail);
       }
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

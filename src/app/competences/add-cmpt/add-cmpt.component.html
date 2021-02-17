@@ -11,7 +11,7 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Entrer les informations</h1>
             </div>
-            <form class="user" [formGroup]="formadd" (ngSubmit)="addCompt()">
+            <form class="user" [formGroup]="formadd">
               <div class="form-group">
                 <!-- <label for="grpCompt">Groupe de Competences</label>
                   <select class="form-control" formControlName="grpCompt" type="text" id="grpCompt" name="idGrpCompt" [(ngModel)]="grpCompt" multiple (ngModelChange)="selectedCompts($event)">
@@ -42,7 +42,7 @@
                   <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv3">Niveau 3</a></li>
                 </ul>
                 <div class="tab-content mb-5">
-                  <div id="niv1" class="tab-pane fade in active">
+                  <div id="niv1" class="tab-pane in active">
                     <div class="row container-fluid">
                       <div class="col-lg-6 border border-dark">
                         <div class="form-group">
@@ -98,8 +98,8 @@
                   </div>
                 </div>
               </div>
-
-              <button [disabled]="formadd.invalid" type="submit" class="btn btn-primary btn-user btn-block mt-3">
+              <button class="btn btn-outline-danger mt-3 col-5 mr-5" (click) = "PagePrecedente()">Retour</button>
+              <button [disabled]="formadd.invalid"  type="submit" class="btn btn-success btn-user col-5 mt-3" (click)="addCompt()">
                 Soumettre
               </button>
             </form>

@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../Model/user';
 import { UserService } from '../service/user.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
@@ -37,7 +38,8 @@ export class EditUserComponent implements OnInit {
     private userservice: UserService,
     private url: ActivatedRoute,
     private sanitizer:DomSanitizer,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private _location: Location
   ) { }
 
   token = this.tokenService.getLocalStorageToken();
@@ -126,6 +128,10 @@ export class EditUserComponent implements OnInit {
       }
     );
 
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

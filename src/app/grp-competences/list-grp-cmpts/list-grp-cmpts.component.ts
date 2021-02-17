@@ -5,6 +5,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import jwt_decode from 'jwt-decode';
 import {GrpCmptService} from '../Services/grp-cmpt.service';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-grp-cmpts',
@@ -15,7 +16,8 @@ export class ListGrpCmptsComponent implements OnInit {
 
   constructor(
     private grpCmptservice: GrpCmptService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private _location: Location
   ) { }
 
   page = 1;
@@ -119,6 +121,10 @@ export class ListGrpCmptsComponent implements OnInit {
       ,
       (error: any) => {console.log(error)}
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

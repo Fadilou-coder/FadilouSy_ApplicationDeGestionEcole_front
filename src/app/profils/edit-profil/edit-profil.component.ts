@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class EditProfilComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userservice: UserService,
-    private url: ActivatedRoute
+    private url: ActivatedRoute,
+    private _location: Location
   ) { }
   ngOnInit(): void {
       this.userservice.getOneProfil(this.id).subscribe(profil => {
@@ -50,5 +52,8 @@ export class EditProfilComponent implements OnInit {
     );
   }
 
+  PagePrecedente(){
+    this._location.back();
+  }
 
 }

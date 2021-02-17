@@ -10,7 +10,7 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Entrer les informations</h1>
             </div>
-            <form class="user" [formGroup]="formadd" (ngSubmit)="editGrpCompt()">
+            <form class="user" [formGroup]="formadd">
               <div class="form-group">
                 <label for="libelle">Libelle</label>
                 <input type="text" class="form-control form-control-user" [(ngModel)]="libelle"
@@ -38,7 +38,8 @@
                   </ng-multiselect-dropdown>
 
               </div>
-              <button [disabled]="formadd.invalid" type="submit" class="btn btn-primary btn-user btn-block mt-3">
+              <button class="btn btn-outline-danger mt-3 col-5 mr-5" (click) = "PagePrecedente()">Retour</button>
+              <button [disabled]="formadd.invalid"  type="submit" class="btn btn-success btn-user col-5 mt-3" (click)="editGrpCompt()">
                 Soumettre
               </button>
             </form>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/token/service/token.service';
 import { CpmtServicesService } from '../Services/cpmt-services.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-cmpts',
@@ -15,6 +16,7 @@ export class ListCmptsComponent implements OnInit {
     private Cmptservice: CpmtServicesService,
     private tokenService: TokenService,
     private formBuilder: FormBuilder,
+    private _location: Location
   ) { }
 
   page = 1;
@@ -65,6 +67,9 @@ export class ListCmptsComponent implements OnInit {
       }
     );
 
+  }
+  PagePrecedente(){
+    this._location.back();
   }
 }
 

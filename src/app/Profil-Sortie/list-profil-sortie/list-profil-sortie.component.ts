@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/token/service/token.service';
 import { UserService } from 'src/app/users/service/user.service';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-profil-sortie',
@@ -15,6 +16,7 @@ export class ListProfilSortieComponent implements OnInit {
    constructor(
     private psService: ProfilSortieService,
     private tokenService: TokenService,
+    private _location: Location
     ) { }
 
   page = 1;
@@ -116,6 +118,10 @@ export class ListProfilSortieComponent implements OnInit {
           ,
           (error: any) => {console.log(error)}
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

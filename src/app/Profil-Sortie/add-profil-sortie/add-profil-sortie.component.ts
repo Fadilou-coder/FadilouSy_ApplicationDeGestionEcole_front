@@ -2,6 +2,7 @@ import { ProfilSortieService } from './../../services/profil-sortie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-profil-sortie',
@@ -18,6 +19,7 @@ export class AddProfilSortieComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private psservice: ProfilSortieService,
+    private _location: Location
   ) { }
   ngOnInit(): void {
       this.formadd = this.formBuilder?.group({
@@ -41,6 +43,10 @@ export class AddProfilSortieComponent implements OnInit {
           alert(error.error.detail);
         }
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

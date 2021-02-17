@@ -12,7 +12,7 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Creer Un Referentiel</h1>
             </div>
-            <form class="user" [formGroup]="formadd" (ngSubmit)="addRef()">
+            <form class="user" [formGroup]="formadd">
 
               <div class="form-group">
                 <label for="libelle">Libelle</label>
@@ -57,7 +57,8 @@
 
               </div>
 
-              <button  type="submit" class="btn btn-primary btn-user btn-block mt-3">
+              <button class="btn btn-outline-danger mt-3 col-5 mr-5 ml-4" (click) = "PagePrecedente()">Retour</button>
+              <button [disabled]="formadd.invalid"  type="submit" class="btn btn-success btn-user col-5 mt-3 ml-4" (click)="addRef()">
                 Soumettre
               </button>
             </form>

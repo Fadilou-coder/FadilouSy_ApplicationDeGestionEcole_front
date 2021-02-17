@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/users/service/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-profil',
@@ -20,6 +21,7 @@ export class AddProfilComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userservice: UserService,
+    private _location: Location
   ) { }
   ngOnInit(): void {
       this.formadd = this.formBuilder?.group({
@@ -45,6 +47,10 @@ export class AddProfilComponent implements OnInit {
           alert('Ce Profil existe');
         }
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

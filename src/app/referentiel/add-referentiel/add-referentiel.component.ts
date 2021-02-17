@@ -5,6 +5,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-referentiel',
@@ -29,7 +30,8 @@ export class AddReferentielComponent implements OnInit {
     private comptService: GrpCmptService,
     private FormBuilder: FormBuilder,
     private refService: ReferentielService,
-    private router: Router
+    private router: Router,
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
@@ -92,6 +94,10 @@ export class AddReferentielComponent implements OnInit {
         console.log(err);
         alert('Cet Référentiel existe deja');
       });
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

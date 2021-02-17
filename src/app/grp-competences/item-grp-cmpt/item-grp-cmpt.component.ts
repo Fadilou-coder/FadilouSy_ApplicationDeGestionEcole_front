@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GrpCmptService } from '../Services/grp-cmpt.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item-grp-cmpt',
@@ -16,6 +17,7 @@ export class ItemGrpCmptComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private grpCmptservice: GrpCmptService,
+    private _location: Location
   ) { }
   Cpmts: any;
   form: FormGroup;
@@ -62,6 +64,10 @@ export class ItemGrpCmptComponent implements OnInit {
       }
     );
 
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

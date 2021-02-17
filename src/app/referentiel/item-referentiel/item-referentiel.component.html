@@ -5,13 +5,19 @@
   <div class="container mt-5" *ngIf="nbrGrp == 0">
     <h1 class = "text-center" *ngIf="nbrGrp == 0">{{message}}</h1>
   </div>
+  <button class="btn btn-outline-success mt-5" (click) = "PagePrecedente()">Retour</button>
   <div class="row">
-    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let g of grpCpmt">
+    <div class="col-xl-3 col-sm-6 col-md-4 col-12" *ngFor="let g of grpCpmt; let i = index">
       <div class="card">
         <div class="container-fluid bg-success">
           <h4>{{g.libelle}}</h4>
           </div>
-            <p class="card-text d-flex justify-content-center" >{{g.descriptif}} </p>
+          <a href="#Desc-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Descriptif</a>
+          <div id="Desc-{{ i }}" class="collapse">
+            <div class="card-body">
+              {{g.descriptif}}
+            </div>
+          </div>
           <div>
           <a class="btn btn-outline-dark btn-block card-footer" href="/acceuil/grpCmpts/itemGrpCompt/{{ g.id }}">Competence</a>
           <button class="btn btn-outline-dark btn-block card-footer" disabled>Tags</button>

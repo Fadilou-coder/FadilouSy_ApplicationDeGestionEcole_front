@@ -3,8 +3,9 @@
     <h3 class="card-header title text-center">Liste des Groupes de Competences</h3>
     <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "role == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addgrpCmpts"></i></a></span>
   </div>
+  <button class="btn btn-outline-success mt-5 mb-2" (click) = "PagePrecedente()">Retour</button>
   <div class="row">
-    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let g of grpCpmt">
+    <div class="col-xl-3 col-sm-6 col-md-4 col-12" *ngFor="let g of grpCpmt; let i = index">
       <div class="card">
         <div class="container-fluid bg-success">
           <div class="float-right">
@@ -13,7 +14,13 @@
           </div>
           <h4>{{g.libelle}}</h4>
           </div>
-            <p class="card-text d-flex justify-content-center" >{{g.descriptif | summerize: 30}} </p>
+            <!-- <p class="card-text d-flex justify-content-center" >{{g.descriptif | summerize: 30}} </p> -->
+            <a href="#Desc-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Descriptif</a>
+            <div id="Desc-{{ i }}" class="collapse">
+              <div class="card-body">
+                {{g.descriptif}}
+              </div>
+            </div>
           <div>
           <a class="btn btn-outline-dark btn-block card-footer" routerLink="itemGrpCompt/{{ g.id }}">Competence</a>
           <button class="btn btn-outline-dark btn-block card-footer" disabled>Tags</button>

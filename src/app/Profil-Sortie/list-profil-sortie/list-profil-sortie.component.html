@@ -3,6 +3,7 @@
         <h3 class="card-header title text-center">Liste des Profils De Sortie</h3>
         <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "decoded == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addProfilSortie"></i></a></span>
       </div>
+      <button class="btn btn-outline-success col-sm-1 ml-5 mt-5 mb-2" (click) = "PagePrecedente()">Retour</button>
       <div class="container col-md-10">
         <table class="table border text-center">
           <thead class="thead-info">

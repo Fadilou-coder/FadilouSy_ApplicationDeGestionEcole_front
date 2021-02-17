@@ -1,11 +1,11 @@
 <div class="container-fluid col-xl-10">
-  <div class="card-body">
+  <div class="card-body mb-5">
     <h3 class="card-header title text-center">Liste des Referentiels</h3>
     <span class="table-add float-right mb-3 mr-5 mt-3"><a class="text-success"><i class="far fa-plus-square fa-4x" routerLink = "addRef"></i> </a></span>
   </div>
-
-  <div class="row mt-5">
-    <div class="col-xl-3 col-sm-6 col-md-4 col-12 mt-5" *ngFor="let r of Refs; let i = index">
+  <button class="btn btn-outline-success mt-5" (click) = "PagePrecedente()">Retour</button>
+  <div class="row">
+    <div class="col-xl-3 col-sm-6 col-md-4 col-12 " *ngFor="let r of Refs; let i = index">
       <div class="card">
         <div class="container-fluid bg-success">
           <div class="float-right">
@@ -14,7 +14,6 @@
           </div>
           <h4>{{r.libelle}}</h4>
           </div>
-            <!-- <p class="card-text d-flex justify-content-center" >{{r.presentation  | summerize: 30}} </p> -->
             <a href="#ListP-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Presentation</a>
             <div id="ListP-{{ i }}" class="collapse">
               <div class="card-body">
@@ -25,13 +24,12 @@
           <a class="btn btn-outline-dark btn-block card-footer" routerLink="itemRef/{{ r.id }}">Groupe de Competences</a>
           <button class="btn btn-outline-dark btn-block card-footer" (click)="onClickDownloadPdf(r)">Télécharger le Programme</button>
           <a href="#List-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Critère d'évaluation</a>
-          <!-- <button class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse" data-target="#List-{{ i }}" aria-expanded="true" aria-controls="{{r.id}}">{{r.critereEvaluation}}</button> -->
           <div id="List-{{ i }}" class="collapse">
             <div class="card-body">
               {{r.critereEvaluation}}
             </div>
           </div>
-          <a href="#ListCA-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Critère d'admission</a>
+          <a href="#ListCA-{{ i }}" class="btn btn-outline-dark btn-block card-footer" data-toggle="collapse">Critère d'admission'</a>
             <div id="ListCA-{{ i }}" class="collapse">
               <div class="card-body">
                 {{r.critereAdmission}}

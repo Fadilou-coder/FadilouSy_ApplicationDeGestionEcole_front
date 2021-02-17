@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TokenService} from '../../token/service/token.service';
 import jwt_decode from 'jwt-decode';
 import { ReferentielService } from 'src/app/referentiel/Service/referentiel.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item-referentiel',
@@ -15,6 +16,7 @@ export class ItemReferentielComponent implements OnInit {
     private referentielservice: ReferentielService,
     private tokenService: TokenService,
     private url: ActivatedRoute,
+    private _location: Location,
 
   ) { }
 
@@ -89,6 +91,10 @@ export class ItemReferentielComponent implements OnInit {
       ,
       (error: any) => {console.log(error)}
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

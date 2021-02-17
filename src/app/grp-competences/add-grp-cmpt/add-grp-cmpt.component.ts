@@ -7,6 +7,7 @@ import {Observable} from 'rxjs'
 import {setTheme} from 'ngx-bootstrap/utils'
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-add-grp-cmpt',
@@ -28,7 +29,8 @@ export class AddGrpCmptComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private grpCpmtservice: GrpCmptService,
-    private cpmtService: CpmtServicesService
+    private cpmtService: CpmtServicesService,
+    private _location: Location
   ) { setTheme('bs4') }
   ngOnInit(): void {
     this.formadd = this.formBuilder?.group({
@@ -76,6 +78,10 @@ export class AddGrpCmptComponent implements OnInit {
         alert(error.error.detail);
       }
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

@@ -2,6 +2,7 @@ import { ProfilSortieService } from './../../services/profil-sortie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-profil-sortie',
@@ -19,7 +20,8 @@ export class EditProfilSortieComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private psservice: ProfilSortieService,
-    private url: ActivatedRoute
+    private url: ActivatedRoute,
+    private _location: Location
   ) { }
   ngOnInit(): void {
       this.psservice.getOneProfilSortie(this.id).subscribe(ps => {
@@ -50,5 +52,8 @@ export class EditProfilSortieComponent implements OnInit {
     );
   }
 
+  PagePrecedente(){
+    this._location.back();
+  }
 
 }

@@ -10,7 +10,7 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Creer Une Promotion</h1>
             </div>
-            <form class="user" #myForm="ngForm" [formGroup]="formadd" (ngSubmit)="addPromo(myForm)">
+            <form class="user" #myForm="ngForm" [formGroup]="formadd">
               <div class="form-group">
                 <label for="langue">Choix de langue</label>
                 <select id="langue" class="selectpicker ml-3" data-style="btn-primary" [(ngModel)]="langue" formControlName="langue">
@@ -126,9 +126,10 @@
               </div> -->
             </div>
 
-              <button [disabled]="formadd.invalid" type="submit" class="btn btn-outline-success btn-block mt-3">
-                Ajouter
-              </button>
+            <button class="btn btn-outline-danger mt-3 col-5 mr-5" (click) = "PagePrecedente()">Retour</button>
+            <button [disabled]="formadd.invalid"  type="submit" class="btn btn-success btn-user col-5 mt-3" (click)="addPromo(myForm)">
+              Soumettre
+            </button>
             </form>
 
           </div>

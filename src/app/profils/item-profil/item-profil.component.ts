@@ -4,6 +4,7 @@ import { UserService } from 'src/app/users/service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import autoTable from 'jspdf-autotable';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item-profil',
@@ -16,7 +17,8 @@ export class ItemProfilComponent implements OnInit {
     private userservice: UserService,
     private router: Router,
     private url: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private _location: Location
     ) { }
 
   page = 1;
@@ -115,6 +117,10 @@ export class ItemProfilComponent implements OnInit {
     const doc = new jsPDF();
     autoTable(doc, { html: '#my-table' });
     doc.save('table.pdf');
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

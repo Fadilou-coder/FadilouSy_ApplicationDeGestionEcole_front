@@ -4,8 +4,9 @@
     <h3 class="card-header title text-center">Liste des Competences</h3>
     <span class="table-add float-right mb-3 mr-5 mt-3" *ngIf = "role == 'ROLE_ADMIN'"><a class="text-success"><i class="fas fa-user-plus fa-2x" routerLink = "addCmpts"></i></a></span>
   </div>
+  <button class="btn btn-outline-success ml-md-5 mt-5 mb-2" (click) = "PagePrecedente()">Retour</button>
   <div class="row container-fluid col-md-10 ml-md-5">
-    <div class="col-md-4 mt-5 border border-dark">
+    <div class="col-md-4 border border-dark">
         <form class="container mt-2">
           <div class="form-group">
               <div class="row container" [formGroup] = "form">
@@ -17,7 +18,7 @@
           </div>
         </form>
     </div>
-    <div class="col mt-5 border border-dark">
+    <div class="col border border-dark">
         <div class="container mt-2">
           <div class="container">
             <ul class="nav nav-pills">

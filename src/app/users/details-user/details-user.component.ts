@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Profil } from 'src/app/profils/Model/profil';
 import { User } from '../Model/user';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-details-user',
@@ -24,7 +25,8 @@ export class DetailsUserComponent implements OnInit {
     private router: Router,
     private userservice: UserService,
     private url: ActivatedRoute,
-    private sanitizer:DomSanitizer
+    private sanitizer:DomSanitizer,
+    private _location: Location
   ) { }
   ngOnInit(): void {
     this.id = this.url.snapshot.params['id'];
@@ -73,6 +75,10 @@ export class DetailsUserComponent implements OnInit {
     // });
 
     // doc.save('test.pdf');
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 

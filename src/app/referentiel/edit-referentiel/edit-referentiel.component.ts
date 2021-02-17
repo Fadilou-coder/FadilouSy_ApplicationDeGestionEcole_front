@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-referentiel',
@@ -29,7 +30,8 @@ export class EditReferentielComponent implements OnInit {
     private refService: ReferentielService,
     private FormBuilder: FormBuilder,
     private route : ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _location: Location,
   ) { }
 
   id = this.route.snapshot.params['id'];
@@ -77,7 +79,7 @@ export class EditReferentielComponent implements OnInit {
     this.pdfSrc = event.target.files[0];
   }
 
-  addRef(){
+  editRef(){
     console.log(this.formadd.value)
     var formData = new FormData();
     formData.append('libelle', this.formadd.value.libelle);
@@ -98,6 +100,10 @@ export class EditReferentielComponent implements OnInit {
       this.router.navigate(['/acceuil/referentiel'])
 
     }, err => { console.log(err); });
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

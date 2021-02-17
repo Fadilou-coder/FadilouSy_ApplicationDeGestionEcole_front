@@ -3,8 +3,9 @@
   <div class="card-body">
     <h3 class="card-header title text-center">Liste des Competences de {{grpCompt}}</h3>
   </div>
+  <button class="btn btn-outline-success ml-md-5 mt-5 mb-2" (click) = "PagePrecedente()">Retour</button>
   <div class="row container-fluid col-md-10 ml-md-5" *ngIf="nbrGrp !== 0">
-    <div class="col-md-4 mt-5 border border-dark">
+    <div class="col-md-4 border border-dark">
         <form class="container mt-2">
           <div class="form-group">
               <div class="container" [formGroup] = "form">
@@ -15,7 +16,7 @@
           </div>
         </form>
     </div>
-    <div class="col mt-5 border border-dark">
+    <div class="col border border-dark">
         <div class="container mt-2">
           <div class="container">
             <ul class="nav nav-pills">
@@ -24,7 +25,7 @@
               <li class="mr-4"><a data-toggle="pill" class="btn btn-outline-info" href="#niv3">Niveau 3</a></li>
             </ul>
             <div class="tab-content mb-5">
-              <div id="niv1" class="tab-pane fade in active">
+              <div id="niv1" class="tab-pane in active">
                 <div class="row container-fluid">
                   <div class="col-lg-6 border border-dark">
                     <h3>Critère d'évaluation</h3>

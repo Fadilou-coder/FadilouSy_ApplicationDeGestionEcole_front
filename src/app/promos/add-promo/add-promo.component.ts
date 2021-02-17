@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import  Swal  from 'sweetalert2';
 import { window } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-promo',
@@ -38,6 +39,7 @@ export class AddPromoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private refService: ReferentielService,
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
@@ -159,6 +161,10 @@ export class AddPromoComponent implements OnInit {
       }
 
     );
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

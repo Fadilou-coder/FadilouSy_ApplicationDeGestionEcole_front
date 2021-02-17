@@ -2,6 +2,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { ReferentielService } from 'src/app/referentiel/Service/referentiel.service';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-referentiel',
@@ -12,7 +13,7 @@ export class ListReferentielComponent implements OnInit {
 
   constructor(
     private refService: ReferentielService,
-    private sanitizer: DomSanitizer
+    private _location: Location,
   ) { }
 
   page = 1;
@@ -132,6 +133,10 @@ export class ListReferentielComponent implements OnInit {
   onClickDownloadPdf(r){
       let base64String = r.programme;
       this.downloadPdf(base64String,'Programme ('+r.libelle+')');
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 }

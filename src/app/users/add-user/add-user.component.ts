@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -31,6 +32,7 @@ export class AddUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userservice: UserService,
+    private _location: Location
   ) { }
   ngOnInit(): void {
       this.userservice.findAllProfil(1).subscribe(
@@ -95,6 +97,10 @@ export class AddUserComponent implements OnInit {
         }
       );
     }
+  }
+
+  PagePrecedente(){
+    this._location.back();
   }
 
 
