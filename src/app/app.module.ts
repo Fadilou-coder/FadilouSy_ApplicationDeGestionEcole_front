@@ -50,6 +50,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { FilterPipe } from './Pipes/filter.pipe';
 import { EditCpmtComponent } from './competences/edit-cpmt/edit-cpmt.component';
 import { SummerizePipe } from './Pipes/summerize.pipe';
+import { ArchiverComponent } from './archiver/archiver.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { SummerizePipe } from './Pipes/summerize.pipe';
     ConfirmDialogComponent,
     FilterPipe,
     EditCpmtComponent,
-    SummerizePipe
+    SummerizePipe,
+    ArchiverComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { ArchiverComponent } from './archiver/archiver.component';
 import { EditCpmtComponent } from './competences/edit-cpmt/edit-cpmt.component';
 import { ItemReferentielComponent } from './referentiel/item-referentiel/item-referentiel.component';
 import { EditReferentielComponent } from './referentiel/edit-referentiel/edit-referentiel.component';
@@ -66,8 +67,10 @@ const routes: Routes = [
 
     ]
   },
+  { path: 'archiver', component: ArchiverComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' },
+
 
 
 ];
