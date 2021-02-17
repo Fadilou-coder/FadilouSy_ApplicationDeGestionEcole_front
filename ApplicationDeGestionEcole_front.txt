@@ -2,11 +2,11 @@
 
 1. Télécharger le d’abord Le projet avec 
        git clone https://github.com/Fadilou-coder/FadilouSy_ApplicationDeGestionEcole_front.git
-	(Télécharger au préalable le projet back)
+	(Télécharger au préalable le projet back et suive la documentation de celui-ci)
 
 2.Taper les Commandes Suivants :
 - npm install Pour télécharger les dépendances (installer au préalable npm)
-- ng serve -o (pour tester)
+- ng serve -o Poour compiler (Lancer au préalable le serveur du projet back)
 
 3. Aller sur le navigateur et Tester (naviguer sur http://localhost:4200/)
 
